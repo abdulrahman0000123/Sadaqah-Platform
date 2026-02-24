@@ -10,48 +10,21 @@ import ProgressBar from '../components/ui/ProgressBar';
 import { mockProjects, globalImpact } from '../data/mockData';
 import { useTheme } from '../contexts/ThemeContext';
 
-const heroImages = [
-    '/images/hero_bg.png',
-    '/images/masjid.png',
-    '/images/water_well.png'
-];
-
 export default function LandingPage() {
     const { t } = useTranslation();
-    const { scrollYProgress } = useScroll();
-    const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
     const { currentLang } = useTheme();
-
-    const [currentImage, setCurrentImage] = useState(0);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % heroImages.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
 
     const isRtl = currentLang === 'ar';
 
     return (
         <div className="w-full">
             {/* 1. Hero Section */}
-            <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4">
-                {/* Background Images Slider */}
-                <motion.div style={{ y }} className="absolute inset-0 z-0 bg-brand-dark">
-                    <AnimatePresence>
-                        <motion.img
-                            key={currentImage}
-                            src={heroImages[currentImage]}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.3 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 1.5 }}
-                            className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
-                        />
-                    </AnimatePresence>
-                    <div className="absolute inset-0 bg-gradient-to-b from-brand-beige/60 via-brand-beige/80 to-brand-beige dark:from-brand-dark/80 dark:via-brand-dark/90 dark:to-brand-dark"></div>
-                </motion.div>
+            <section
+                className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 bg-fixed bg-center bg-cover bg-no-repeat"
+                style={{ backgroundImage: "url('/images/hero_ai_bg.png')" }}
+            >
+                {/* Background Overlay */}
+                <div className="absolute inset-0 z-0 bg-gradient-to-b from-brand-beige/80 via-brand-beige/70 to-brand-beige dark:from-brand-dark/90 dark:via-brand-dark/70 dark:to-brand-dark"></div>
 
                 {/* Animated Background Particles */}
                 <motion.div
