@@ -4,14 +4,20 @@ import { useTranslation } from 'react-i18next';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
     const { i18n } = useTranslation();
 
     useEffect(() => {
-        const isDark = localStorage.getItem('theme') === 'dark';
+        const storedTheme = localStorage.getItem('theme');
+        const isDark = storedTheme === null ? true : storedTheme === 'dark';
         setIsDarkMode(isDark);
         if (isDark) {
             document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        if (storedTheme === null) {
+            localStorage.setItem('theme', 'dark');
         }
     }, []);
 

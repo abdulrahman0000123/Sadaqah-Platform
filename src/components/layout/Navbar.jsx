@@ -10,7 +10,7 @@ export default function Navbar() {
     const { isDarkMode, toggleTheme, changeLanguage, currentLang } = useTheme();
 
     return (
-        <nav className="fixed top-4 left-0 right-0 z-50 mx-auto w-[calc(100%-2rem)] max-w-7xl rounded-2xl backdrop-blur-md bg-white/60 dark:bg-brand-dark/60 border border-brand-green dark:border-white shadow-xl transition-all duration-300">
+        <nav className="fixed top-4 left-0 right-0 z-50 mx-auto w-[calc(100%-4rem)] max-w-5xl rounded-full backdrop-blur-md bg-white/60 dark:bg-brand-dark/60 border border-brand-green dark:border-white shadow-xl transition-all duration-300">
             <div className="px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
@@ -26,9 +26,9 @@ export default function Navbar() {
 
                     {/* Nav Links */}
                     <div className="hidden md:flex space-x-8 rtl:space-x-reverse items-center">
-                        <Link to="/" className="hover:text-brand-green dark:text-brand-green transition-colors font-medium">{t('home')}</Link>
-                        <Link to="/projects" className="hover:text-brand-green dark:text-brand-green transition-colors font-medium">{t('projects')}</Link>
-                        <Link to="/dashboard" className="hover:text-brand-green dark:text-brand-green transition-colors font-medium">{t('dashboard')}</Link>
+                        <Link to="/" className="hover:text-brand-green dark:text-brand-green transition-colors font-bold text-lg">{t('home')}</Link>
+                        <Link to="/projects" className="hover:text-brand-green dark:text-brand-green transition-colors font-bold text-lg">{t('projects')}</Link>
+                        <Link to="/about" className="hover:text-brand-green dark:text-brand-green transition-colors font-bold text-lg">{t('about_us')}</Link>
                     </div>
 
                     {/* Actions */}
