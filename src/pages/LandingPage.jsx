@@ -38,13 +38,13 @@ export default function LandingPage() {
                     className="absolute bottom-1/4 -right-20 w-96 h-96 bg-brand-gold/20 dark:bg-brand-gold/10 rounded-full mix-blend-multiply filter blur-3xl"
                 />
 
-                <div className="z-10 text-center max-w-3xl mx-auto mt-[-5vh]">
+                <div className="z-10 text-center max-w-4xl mx-auto mt-[-5vh]">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-brand-dark dark:text-white leading-tight">
+                        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-brand-dark dark:text-white leading-tight whitespace-nowrap">
                             {t('welcome')}
                         </h1>
                         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
