@@ -16,7 +16,8 @@ export const projectsData = [
         image: "/images/water_well.png",
         goal: 50000,
         raised: 35000,
-        donors: 142
+        donors: 142,
+        category: { en: "Water", ar: "مياه" }
     },
     {
         id: "orphan-sponsorship",
@@ -35,7 +36,8 @@ export const projectsData = [
         image: "/images/orphan_care.png",
         goal: 120000,
         raised: 80000,
-        donors: 315
+        donors: 315,
+        category: { en: "Education", ar: "تعليم" }
     },
     {
         id: "masjid-building",
@@ -54,6 +56,7 @@ export const projectsData = [
         image: "/images/masjid.png",
         goal: 500000,
         raised: 150000,
-        donors: 520
+        donors: 520,
+        category: { en: "Community", ar: "مجتمع" }
     }
 ];

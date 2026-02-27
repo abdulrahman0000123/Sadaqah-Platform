@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { CheckCircle2, CreditCard, Wallet, Calendar } from 'lucide-react';
 import GlassCard from '../components/ui/GlassCard';
 import AnimatedButton from '../components/ui/AnimatedButton';
-import { mockProjects } from '../data/mockData';
+import { projectsData } from '../data/projects';
 import { useTheme } from '../contexts/ThemeContext';
 
 const PRESET_AMOUNTS = [100, 500, 1000, 5000];
@@ -19,7 +19,7 @@ export default function DonatePage() {
     const [amount, setAmount] = useState(PRESET_AMOUNTS[1]);
     const [customAmount, setCustomAmount] = useState('');
     const [isRecurring, setIsRecurring] = useState(false);
-    const [selectedProject, setSelectedProject] = useState(initialProjectId ? Number(initialProjectId) : mockProjects[0].id);
+    const [selectedProject, setSelectedProject] = useState(initialProjectId ? initialProjectId : projectsData[0].id);
     const [paymentMethod, setPaymentMethod] = useState('card');
     const [showSuccess, setShowSuccess] = useState(false);
 
@@ -61,15 +61,15 @@ export default function DonatePage() {
                             </label>
                             <select
                                 value={selectedProject}
-                                onChange={(e) => setSelectedProject(Number(e.target.value))}
+                                onChange={(e) => setSelectedProject(e.target.value)}
                                 className="w-full p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-brand-dark dark:text-white focus:ring-2 focus:ring-brand-green focus:border-transparent transition-shadow outline-none"
                             >
-                                {mockProjects.map(p => (
+                                {projectsData.map(p => (
                                     <option key={p.id} value={p.id}>
-                                        {isRtl ? p.titleAr : p.titleEn}
+                                        {isRtl ? p.title.ar : p.title.en}
                                     </option>
                                 ))}
-                                <option value={0}>{isRtl ? 'صندوق الصدقات العام' : 'General Sadaqah Fund'}</option>
+                                <option value="general">{isRtl ? 'صندوق الصدقات العام' : 'General Sadaqah Fund'}</option>
                             </select>
                         </div>
 

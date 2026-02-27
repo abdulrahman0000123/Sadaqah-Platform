@@ -7,7 +7,8 @@ import AnimatedButton from '../components/ui/AnimatedButton';
 import GlassCard from '../components/ui/GlassCard';
 import CountUpNumber from '../components/ui/CountUpNumber';
 import ProgressBar from '../components/ui/ProgressBar';
-import { mockProjects, globalImpact } from '../data/mockData';
+import { globalImpact } from '../data/mockData';
+import { projectsData } from '../data/projects';
 import { useTheme } from '../contexts/ThemeContext';
 
 export default function LandingPage() {
@@ -171,7 +172,7 @@ export default function LandingPage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {mockProjects.map((project, idx) => (
+                        {projectsData.map((project, idx) => (
                             <motion.div
                                 key={project.id}
                                 initial={{ opacity: 0, y: 60 }}
@@ -183,19 +184,19 @@ export default function LandingPage() {
                                     <div className="relative h-48 overflow-hidden">
                                         <img
                                             src={project.image}
-                                            alt={isRtl ? project.titleAr : project.titleEn}
+                                            alt={isRtl ? project.title.ar : project.title.en}
                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                         />
                                         <div className="absolute top-4 right-4 bg-white/90 dark:bg-brand-dark/90 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md text-brand-green">
-                                            {project.category}
+                                            {isRtl ? project.category.ar : project.category.en}
                                         </div>
                                     </div>
                                     <div className="p-6 flex flex-col flex-grow">
                                         <h3 className="text-xl font-bold mb-2 text-brand-dark dark:text-white">
-                                            {isRtl ? project.titleAr : project.titleEn}
+                                            {isRtl ? project.title.ar : project.title.en}
                                         </h3>
                                         <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">
-                                            {isRtl ? project.descriptionAr : project.descriptionEn}
+                                            {isRtl ? project.brief.ar : project.brief.en}
                                         </p>
 
                                         <div className="mt-auto">
